@@ -6,6 +6,9 @@
     <title>Vishal Kadam Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
 
     <style>
         html {
@@ -28,7 +31,7 @@
             --header-bg: #1e1e1e;
             --section-bg: rgba(255, 255, 255, 0.1); 
             --link-color: #4dabf7;
-            background-image: url('https://www.teahub.io/photos/full/93-938757_75-web-website-background-color.jpg'); 
+            background-image: url('https://images.pexels.com/photos/2680270/pexels-photo-2680270.jpeg'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -38,7 +41,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('https://wallpaperboat.com/wp-content/uploads/2019/10/best-background-for-website-14.jpg');
+            background-image: url('https://images.pexels.com/photos/4646214/pexels-photo-4646214.jpeg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -193,11 +196,11 @@
     <header>
         <img src="https://i.imgur.com/FWOai7g.jpeg" alt="Vishal's Profile Photo" class="profile-img">
         <h1>Vishal Kadam</h1>
-        <p><h2>Computer Science Engineering Specialized in AI & Data Science</h2></p>
+        <p><h2 data-aos="fade-right">Computer Science Engineering Specialized in AI & Data Science</h2></p>
     </header>
     
    <section id="about">
-        <h1>About Me </h1>
+        <h1> About Me </h1>
         <ul style="list-style-type: disc; color: black;"><section>
        	<li> AI & Data Science Engineering student passionate about Machine Learning and Data Analytics. I am currently Learning Advanced things in my Field.</li>
         <li>Working on multiple AI projects solving real-world problems.</li>
@@ -424,8 +427,17 @@
         },
     });
 </script>
+<script>
+  AOS.init({
+    duration: 1000,  // Animation duration (1s)
+    once: true,       // Animates only once
+  });
+</script>
+
 </body>
 </html>
+
+
 
 
 

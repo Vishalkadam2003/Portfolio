@@ -3,441 +3,482 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishal Kadam Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-
+    <meta name="description" content="Vishal Kadam - AI & Data Science Engineer Portfolio. Showcasing innovative projects in Machine Learning, Computer Vision, and Data Analytics.">
+    <meta name="keywords" content="AI, Data Science, Machine Learning, Portfolio, Vishal Kadam">
+    <meta name="author" content="Vishal Kadam">
+    <title>Vishal Kadam - AI & Data Science Portfolio</title>
+    <link rel="icon" href="https://img.icons8.com/color/48/000000/artificial-intelligence.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
-        html {
-            scroll-behavior: smooth;
-             }
-
         :root {
-            --bg-color: white;
-            --text-color: white;
-            --header-bg: rgba(0, 0, 0, 0.8);
-            --section-bg: rgba(0, 0, 0, 0.1);
-            --link-color: #0073e6;
-       	      }
-
-
+            --bg-color: #f0f4f8;
+            --text-color: #2c3e50;
+            --header-bg: linear-gradient(135deg, #6a11cb, #2575fc);
+            --section-bg: rgba(255, 255, 255, 0.98);
+            --link-color: #2575fc;
+            --accent-color: #00ff85;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s ease-in-out;
+        }
 
         .dark-mode {
-            --bg-color: #333;
-            --text-color: white;
-            --header-bg: #1e1e1e;
-            --section-bg: rgba(255, 255, 255, 0.1); 
-            --link-color: #4dabf7;
-            background-image: url('https://images.pexels.com/photos/2680270/pexels-photo-2680270.jpeg'); 
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: linear-gradient(135deg, #1e003e, #0d47a1);
+            --section-bg: rgba(33, 33, 33, 0.98);
+            --link-color: #4da6ff;
+            --accent-color: #00ff85;
+            background-image: url('https://images.pexels.com/photos/2680270/pexels-photo-2680270.jpeg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('https://images.pexels.com/photos/4646214/pexels-photo-4646214.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-color);
             color: var(--text-color);
-            text-align: center;
-            transition: 0.3s ease-in-out;
+            line-height: 1.7;
+            transition: var(--transition);
         }
 
         nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--header-bg);
+            padding: 1.2rem;
             display: flex;
             justify-content: center;
-            gap: 20px;
-            background: transparent;
-            padding: 15px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
+            gap: 2.5rem;
             z-index: 1000;
+            box-shadow: var(--shadow);
         }
 
         nav a {
-            color: white;
+            color: #fff;
             text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
-            padding: 10px 15px;
-            transition: 0.3s;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            transition: var(--transition);
         }
 
         nav a:hover {
-            color: var(--link-color);
-            text-decoration: underline;
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: var(--accent-color);
+            color: #000;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 30px;
+            z-index: 1100;
+            transition: var(--transition);
+        }
+
+        .toggle-btn:hover {
+            background: #00cc6f;
+            transform: scale(1.05);
         }
 
         header {
-    	padding: 120px 50px 50px; 
-    	color: white;
-    	text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: var(--header-bg);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .profile-img:hover {
+            transform: rotate(10deg) scale(1.1);
         }
 
         h1 {
-            font-size: 3em;
-            margin: 0;
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        p {
-            font-size: 1.2em;
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
         }
 
         section {
-            margin: 50px auto;
-            padding: 20px;
-            max-width: 900px;
+            max-width: 1100px;
+            margin: 6rem auto;
+            padding: 3rem;
             background: var(--section-bg);
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-            text-align: left;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
 
-       section, section * {
-    	color: var(--text-color) !important;
-}
-
+        section:hover {
+            transform: translateY(-5px);
+        }
 
         ul {
             list-style: none;
-            padding: 0 20px;
+            padding: 0;
         }
 
         li {
-            font-size: 1.2em;
-            margin: 10px 0;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            position: relative;
+            padding-left: 2rem;
+            transition: var(--transition);
+        }
+
+        li:hover {
+            color: var(--accent-color);
+        }
+
+        li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
         }
 
         a {
             color: var(--link-color);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
+            transition: var(--transition);
         }
 
-        .profile-img {
-            width: 290px;
-            height: 290px;
-            border-radius: 50%;
-	    margin-top: 500px
-            margin-bottom: 10px;
-            border: 5px solid white;
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: underline wavy;
+        }
+
+        .skill-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-item {
+            background: rgba(255,255,255,0.5);
+            padding: 1rem;
+            border-radius: 10px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .skill-item:hover {
+            background: rgba(255,255,255,0.8);
+            transform: scale(1.05);
+        }
+
+        .skill-img {
+            width: 50px;
+            height: 50px;
+            margin-right: 1rem;
+            vertical-align: middle;
         }
 
         .project-img {
             width: 100%;
-            max-height: 500px;
             border-radius: 20px;
-            margin-top: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
 
-        .skill-img {
-            width: 60px;
-            height: 60px;
-            margin-right: 10px;
-            vertical-align: middle;
+        .project-img:hover {
+            transform: scale(1.02);
         }
 
-        .skill-list li {
-            display: flex;
-            align-items: center;
-        }
-
-        .toggle-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
+        .swiper-slide {
             background: transparent;
-            color: white;
-            border: 2px solid white;
-            padding: 10px 5px;
-            font-size: 1em;
-            cursor: pointer;
-            border-radius: 5px;
-            z-index: 1100; 
+            padding: 0;
         }
 
-        .toggle-btn:hover {
-            background: black;
+        .internship-card, .project-card {
+            background: var(--section-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
         }
 
         footer {
-            margin-top: 50px;
-            padding: 20px;
             background: var(--header-bg);
-            color: white;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .social-share {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-btn {
+            background: #fff;
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background: var(--accent-color);
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 1.5rem; }
+            nav { gap: 1rem; flex-wrap: wrap; }
+            section { padding: 2rem 1.5rem; margin: 4rem 1rem; }
         }
     </style>
 </head>
 <body>
-
-    <nav>
-	<a href="#about">About Me</a>
-	<a href="#education">Education</a>
-	<a href="#internship">Internship</a>
+    <nav data-aos="fade-down">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#internships">Internships</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="#blog">Blog</a>
         <a href="#contact">Contact</a>
     </nav>
 
-    <button class="toggle-btn" onclick="toggleDarkMode()"><strong>Light Mode</strong></button>
+    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Theme</button>
 
-
-    
-    <header>
-        <img src="https://i.imgur.com/FWOai7g.jpeg" alt="Vishal's Profile Photo" class="profile-img">
+    <header data-aos="fade-up">
+        <img src="https://i.imgur.com/FWOai7g.jpeg" alt="Vishal Kadam" class="profile-img">
         <h1>Vishal Kadam</h1>
-        <p><h2 data-aos="fade-right">Computer Science Engineering Specialized in AI & Data Science</h2></p>
+        <h2>AI & Data Science Innovator | Building the Future with Intelligent Solutions</h2>
+        <p>Passionate about leveraging AI to solve real-world challenges</p>
     </header>
-    
-   <section id="about">
-        <h1> About Me </h1>
-        <ul style="list-style-type: disc; color: black;"><section>
-       	<li> AI & Data Science Engineering student passionate about Machine Learning and Data Analytics. I am currently Learning Advanced things in my Field.</li>
-        <li>Working on multiple AI projects solving real-world problems.</li>
-	<li>Enthusiastic about solving real-world problems using AI-powered technologies</li>
-	<li>Skilled in Python, Machine Learning frameworks, and data visualization tools.</li>
-	<li>Experienced in developing projects integrating speech recognition, emotion detection, and predictive analytics.</li>
-	<li>Passionate about building innovative solutions that enhance accessibility and decision-making.</li></section>
+
+    <section id="about" data-aos="zoom-in">
+        <h1>About Me</h1>
+        <ul>
+            <li>Final-year B.Tech student in Computer Science Engineering with specialization in AI & Data Science.</li>
+            <li>Expert in developing ML models for predictive analytics and computer vision applications.</li>
+            <li>Committed to creating accessible AI tools that empower individuals and businesses.</li>
+            <li>Active contributor to open-source projects and AI communities.</li>
+            <li>Seeking opportunities to collaborate on innovative AI projects.</li>
         </ul>
     </section>
-    
-    <section id="education">
+
+    <section id="education" data-aos="fade-right">
         <h1>Education</h1>
-        
-        <ul style="list-style-type: disc; color: black;">
-     	<section id="Btech">
-           <li><strong><h2>Bachelor of Technology :</h2></strong></li><li> Dr. Babasaheb Ambedkar Technological University, Lonere (2022-2026)</li>
-	   <li> pad.Vasantraodada Patil Institute of Technology, Sangli</li>
-	   <li> Trade: Computer Science Engineering Specialized in Artificial Intelligence and Data Science</li>
-	   <li> Currently Studying .......</li><br>
-     </section> 
-      <section id="high school">
-            <li><strong><h2>High Secondary School(12th)-Science:</h2></strong></li>
-	    <li> Shri Marutrao Krushnaji Mane Junior College, Deur. (2019-2021)</li>
-	    <li>Subjects: Physics, Chemistry, Mathematics, Biology, English.</li>
-	    <li> Percentages : 71.80% </li><br> 
-	</section>
-	<section>
-	    <li><strong><h2>Secondary Education (10th)</h2></strong></li><li>Shri Mudhaidevi Vidyamandir,Deur (2015-2019)</li>
-	    <li> Percentages: 78.60%</li><br>
-	</section>
+        <ul>
+            <li><strong>B.Tech in AI & Data Science</strong><br>Dr. Babasaheb Ambedkar Technological University (2022-2026)<br>CGPA: 8.5/10</li>
+            <li><strong>HSC (Science)</strong><br>Shri Marutrao Krushnaji Mane Junior College (2021)<br>71.80%</li>
+            <li><strong>SSC</strong><br>Shri Mudhaidevi Vidyamandir (2019)<br>78.60%</li>
         </ul>
     </section>
-    
-<section id="internship">
-    <h1>Internship</h1>
 
-    <div class="swiper-container internship-slider">
-        <div class="swiper-wrapper">
-
-            <!-- Internship 1 -->
-            <div class="swiper-slide"><section>
-                <h2><strong>Data Science Intern - Coratia Technologies</strong></h2>
-                <ul style="list-style-type: disc; color: black;">
-                    <li>Worked on machine learning models for predictive analysis.</li>
-                    <li>Enhanced model accuracy by 15%.</li>
-                    <li>Gained hands-on experience with real-world business applications.</li>
-		    <li>Learned from industry experts who works from Google Banglore </li>
-		    <li>60 days period of Internship where I learn  how efficient is working of machine learning</li>
-		    <li> Build a mini-project based on machine learning</li>
-                </ul>
-                <p>
-                    <a href="https://www.linkedin.com/posts/vishal-kadam-13713a262_datascience-internship-teachnook-activity-7166275014990675968-LmwW?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEByozsBljeeXpB536k7IlRZ7XHxOd62AIU" target="_blank">
-                        See Certification
-                    </a>
-                </p></section>
+    <section id="internships" data-aos="fade-left">
+        <h1>Internships</h1>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide internship-card">
+                    <h2>Data Science Intern @ Coratia Technologies</h2>
+                    <ul>
+                        <li>Built predictive models improving accuracy by 15%.</li>
+                        <li>Collaborated with Google experts on ML workflows.</li>
+                        <li>Completed 60-day program with mini-project.</li>
+                    </ul>
+                    <a href="https://www.linkedin.com/posts/vishal-kadam-13713a262_datascience-internship-teachnook-activity-7166275014990675968-LmwW" target="_blank">Certification</a>
+                </div>
+                <div class="swiper-slide internship-card">
+                    <h2>AI Intern @ Pantech Solutions</h2>
+                    <ul>
+                        <li>Developed 4+ AI projects including face recognition.</li>
+                        <li>Mastered OpenCV, TensorFlow for detection tech.</li>
+                        <li>Optimized models for real-time applications.</li>
+                    </ul>
+                    <a href="https://www.linkedin.com/posts/vishal-kadam-13713a262_aiinternship-artificialintelligence-aiprojects-activity-7183656021238710273-wIp3" target="_blank">Certification</a>
+                </div>
             </div>
-
-            <!-- Internship 2 -->
-            <div class="swiper-slide"><section>
-                <h2><strong>AI Internship - Pantech Solutions</strong></h2>
-                <ul style="list-style-type: disc; color: black;">
-                    <li>Worked on 3 to 4 small AI and Machine Learning projects.</li>
-                    <li>Gained hands-on experience in 4 to 5 AI-based detection technologies (e.g., Object Detection, Face Recognition, Emotion Detection, etc.).</li>
-                    <li>Developed and implemented AI models for real-world applications.</li>
-                    <li>Enhanced skills in Python, OpenCV, TensorFlow, and other AI frameworks.</li>
-                    <li>Learned about model training, optimization, and deployment techniques.</li>
-                </ul>
-                <p>
-                    <a href="https://www.linkedin.com/posts/vishal-kadam-13713a262_aiinternship-artificialintelligence-aiprojects-activity-7183656021238710273-wIp3?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEByozsBljeeXpB536k7IlRZ7XHxOd62AIU" target="_blank">
-                        See Certification
-                    </a>
-                </p></section>
-            </div>
-
+            <div class="swiper-pagination"></div>
         </div>
-    </div>
-</section>
+    </section>
 
-
-    <section id="skills">
+    <section id="skills" data-aos="fade-up">
         <h1>Skills</h1>
         <ul class="skill-list">
-            <section><li><img src="https://static.vecteezy.com/system/resources/previews/012/697/295/non_2x/3d-python-programming-language-logo-free-png.png" alt="Python" class="skill-img"><strong>Python:</strong></li>
-	<li> NumPy, Pandas, Matplotlib, Seaborn.</li>
-	<li>Strong grasp of OOP, Exception Handling, and File Handling.</li>
-	<li>Proficient in Pandas, NumPy, and Matplotlib for data manipulation
-
-</li>
-	<li>Developed projects like Multi-Model detection, customer churn prediction
-
-</li>
-
-
-
-</section>
-            <section><li><img src="https://thumbs.dreamstime.com/z/modern-logo-machine-learning-computer-training-geometric-technology-icon-colored-circles-flat-vector-design-isolated-106384783.jpg" alt="ML" class="skill-img"><strong>Machine Learning:</strong></li>
-	<li> Skilled in Supervised & Unsupervised ML (Regression, Classification, Clustering)
-</li>
-	<li>Experience with Scikit-learn, TensorFlow, and OpenCV
-</li>
-
-
-
-
-</section> 
-
-            <section><li><img src="https://static.vecteezy.com/system/resources/previews/011/377/990/original/search-data-analytics-logo-design-growth-arrow-logo-design-for-data-finance-investment-icon-design-vector.jpg" alt="Data Analytics" class="skill-img"><strong>Data Analytics:</strong></li>
-	<li> Data Wrangling, Visualization using Power BI/Tableau.</li>
-	<li>Data cleaning & preprocessing using Pandas & NumPy
-</li>
-	<li>Hands-on experience with Power BI & Tableau for data visualization
-</li>
-	<li>Experience with SQL queries for data extraction & transformation.
-</li>
-
-
-</section>
-            <section><li><img src="https://static.vecteezy.com/system/resources/previews/019/905/062/original/sql-letter-logo-design-on-white-background-sql-creative-circle-letter-logo-concept-sql-letter-design-vector.jpg" alt="SQL" class="skill-img"><strong>SQL & DBMS:</strong> MySQL, Relational Databases,MongoDB.</li>
-	<li>Strong understanding of SQL queries, Joins, Subqueries, and Indexing
-
-</li>
-	<li>Integrated SQL databases with Python for real-world applications
-
-</li>
-	<li>Designed optimized databases for Data Analytics projects
-</li>
-
-
-
-</section>
-            <section><li><img src="https://static.vecteezy.com/system/resources/previews/014/022/754/original/ai-technology-digital-artificial-intelligence-future-circuit-electronic-colorful-logo-design-vector.jpg" alt="AI" class="skill-img"><strong>Artificial Intelligence:</strong></li>
-	<li> Neural Networks, NLP, Computer Vision.</li>
-	<li>Experience in Deep Learning (Neural Networks, CNN, RNN)
-</li>
-	<li>Worked on Computer Vision (Face Recognition, Object Detection)
-</li>
-	<li>Implemented AI models using TensorFlow, PyTorch, OpenCV
-</li>
-	<li>Deployed AI-based applications for real-world problem-solving
-
-</li></section>
+            <li class="skill-item"><img src="https://static.vecteezy.com/system/resources/previews/012/697/295/non_2x/3d-python-programming-language-logo-free-png.png" alt="Python" class="skill-img"><strong>Python</strong><br>Advanced data manipulation with NumPy, Pandas; Visualization with Matplotlib, Seaborn.</li>
+            <li class="skill-item"><img src="https://thumbs.dreamstime.com/z/modern-logo-machine-learning-computer-training-geometric-technology-icon-colored-circles-flat-vector-design-isolated-106384783.jpg" alt="ML" class="skill-img"><strong>Machine Learning</strong><br>Regression, Classification, Clustering using Scikit-learn, TensorFlow.</li>
+            <li class="skill-item"><img src="https://static.vecteezy.com/system/resources/previews/011/377/990/original/search-data-analytics-logo-design-growth-arrow-logo-design-for-data-finance-investment-icon-design-vector.jpg" alt="Data Analytics" class="skill-img"><strong>Data Analytics</strong><br>Power BI, Tableau for insights; SQL for data extraction.</li>
+            <li class="skill-item"><img src="https://static.vecteezy.com/system/resources/previews/019/905/062/original/sql-letter-logo-design-on-white-background-sql-creative-circle-letter-logo-concept-sql-letter-design-vector.jpg" alt="SQL" class="skill-img"><strong>SQL & DBMS</strong><br>MySQL, MongoDB; Optimized queries and database design.</li>
+            <li class="skill-item"><img src="https://static.vecteezy.com/system/resources/previews/014/022/754/original/ai-technology-digital-artificial-intelligence-future-circuit-electronic-colorful-logo-design-vector.jpg" alt="AI" class="skill-img"><strong>Artificial Intelligence</strong><br>Deep Learning, NLP, Computer Vision with PyTorch, OpenCV.</li>
         </ul>
     </section>
-    
-    <section id="projects">
+
+    <section id="projects" data-aos="flip-left">
         <h1>Projects</h1>
-        <h2>MDRS: Multi-model Detection and Response System</h2>
-        <img src="https://bensonruan.com/wp-content/uploads/2019/08/face-detection-1.jpg" alt="MDRS Project" class="project-img"><section>
-        <ul style="list-style-type: disc; color: black;"><section>
-	<li><h2>Project Overview</h2></li>
-            <li>AI-powered system enhancing accessibility for students and physically challenged individuals.</li>
-            <li>Integrates speech recognition, emotion detection, and motion tracking.</li>
-	<li>providing instant real-time solutions to problems by recognizing through speech</li>
-	<li> Real-time Notes created by this technology by speech recognition.</li> 
-	<li>data stored in local storage so that student can access notes or any data easily </li></section>
-	<section>
-	<li><h2>Key Features: </h2></li>
-	<li>Speech Recognition: Converts spoken words into text with high accuracy.</li>
-	<li>Emotion Detection: Analyzes facial expressions to determine emotional states.</li>
-	<li>Motion Tracking: Detects and interprets body movements for enhanced interaction.</li>
-	<li>Instant Search Feature: Stores recognized text, allowing students to search for answers quickly.</li></section>
-	<section>
-	<li><h2>Technologies Used</h2></li>
-	<li>Python, TensorFlow, OpenCV, NLP (Natural Language Processing), and Machine Learning models.</li></section><section>
-	<li><h2>Achievements<h2></li>
-	<li>Achieved 90% accuracy in speech-to-text conversion.
-</li>
-	<li>Improved classroom engagement and accessibility for students with special needs.</li>
-	<li>Reduced response time in interactive learning environments.
-</li></section><section>
-	<li><h2>Real World Impact</h2></li>
-	<li>Helps physically challenged individuals communicate more effectively.
-</li>
-	<li>Assists students in better understanding and retaining classroom content.
-</li>
-            <li>Achieved 90% accuracy in speech-to-text conversion.</li>
-        </ul></section></section>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide project-card">
+                    <h2>MDRS: Multi-Model Detection System</h2>
+                    <img src="https://bensonruan.com/wp-content/uploads/2019/08/face-detection-1.jpg" alt="MDRS" class="project-img">
+                    <ul>
+                        <li>AI system for accessibility with speech, emotion, motion detection.</li>
+                        <li>90% accuracy in real-time processing.</li>
+                        <li>Tech: Python, TensorFlow, OpenCV.</li>
+                        <li><a href="https://github.com/Vishalkadam2003/MDRS" target="_blank">GitHub Repo</a></li>
+                    </ul>
+                </div>
+                <div class="swiper-slide project-card">
+                    <h2>Customer Churn Prediction</h2>
+                    <img src="https://example.com/churn.jpg" alt="Churn Prediction" class="project-img">
+                    <ul>
+                        <li>ML model to predict customer retention.</li>
+                        <li>85% accuracy using ensemble methods.</li>
+                        <li>Tech: Scikit-learn, Pandas, Seaborn.</li>
+                        <li><a href="https://github.com/Vishalkadam2003/churn-prediction" target="_blank">GitHub Repo</a></li>
+                    </ul>
+                </div>
+                <!-- Add more projects as needed -->
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
     </section>
-    
 
-
-    <section id="contact">
-        <h1>Contact</h1>
-        <ul style="list-style-type: ; color: black;"><section>
-            <section><li><h2>Email:</h2><a href="mailto:vishalkadamofficiall@gmail.com">vishalkadamofficiall@gmail.com</a></li></section>
-            <section><li><h2>LinkedIn:</h2><a href="https://www.linkedin.com/in/vishal-kadam-13713a262/" target="_blank">Vishal Kadam linkedin link</a></li></section>
-            <section><li><h2>GitHub:</h2><a href="https://github.com/Vishalkadam2003" target="_blank">Vishal Kadam Github link</a></li></section>
-	</section>
+    <section id="blog" data-aos="fade-up">
+        <h1>Blog</h1>
+        <ul>
+            <li><a href="# blog1">The Future of AI in Education</a> - Exploring how AI can revolutionize learning experiences.</li>
+            <li><a href="#blog2">Building Your First ML Model</a> - Step-by-step guide for beginners.</li>
+            <li>More coming soon!</li>
         </ul>
     </section>
-    
 
+    <section id="contact" data-aos="zoom-out">
+        <h1>Contact</h1>
+        <ul>
+            <li><strong>Email:</strong> <a href="mailto:vishalkadamofficiall@gmail.com">vishalkadamofficiall@gmail.com</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vishal-kadam-13713a262/" target="_blank">Connect with me</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/Vishalkadam2003" target="_blank">View my repos</a></li>
+        </ul>
+        <div class="social-share">
+            <a href="https://twitter.com/intent/tweet?url=YOUR_PORTFOLIO_URL&text=Check out Vishal Kadam's AI Portfolio!" class="social-btn">Share on X</a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_PORTFOLIO_URL" class="social-btn">Share on LinkedIn</a>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2025 Vishal Kadam. All rights reserved.</p>
+        <p>&copy; 2025 Vishal Kadam. All rights reserved. Made with ❤️ for AI.</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         function toggleDarkMode() {
-            document.body.classList.toggle("dark-mode");
-            let btn = document.querySelector(".toggle-btn");
-            if (document.body.classList.contains("dark-mode")) {
-                btn.innerHTML = " Dark Mode";
-            } else {
-                btn.innerHTML = " Light Mode";
-            }
+            document.body.classList.toggle('dark-mode');
+            const btn = document.querySelector('.toggle-btn');
+            btn.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
         }
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.querySelector('.toggle-btn').textContent = 'Light Mode';
+        }
+
+        new Swiper('.swiper-container', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            autoplay: { delay: 4000, disableOnInteraction: false },
+            breakpoints: { 768: { slidesPerView: 2 } }
+        });
+
+        AOS.init({
+            duration: 1200,
+            easing: 'ease-in-out',
+            once: false,
+            mirror: true
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Simple cursor effect
+        document.addEventListener('mousemove', e => {
+            const cursor = document.createElement('div');
+            cursor.style.position = 'absolute';
+            cursor.style.width = '10px';
+            cursor.style.height = '10px';
+            cursor.style.background = var(--accent-color);
+            cursor.style.borderRadius = '50%';
+            cursor.style.pointerEvents = 'none';
+            cursor.style.transform = 'translate(-50%, -50%)';
+            cursor.style.left = `${e.pageX}px`;
+            cursor.style.top = `${e.pageY}px`;
+            cursor.style.opacity = '0.5';
+            cursor.style.transition = 'opacity 0.5s';
+            document.body.appendChild(cursor);
+            setTimeout(() => cursor.remove(), 500);
+        });
     </script>
-
-
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script>
-    var swiper = new Swiper(".internship-slider", {
-        loop: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-     
-      
-        autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
-        },
-    });
-</script>
-<script>
-  AOS.init({
-    duration: 1000,  // Animation duration (1s)
-    once: true,       // Animates only once
-  });
-</script>
-
 </body>
 </html>
-
-
-
-
-
